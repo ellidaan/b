@@ -45,10 +45,6 @@ app.get('/pokemon/:id', async (req, res) => {
 
 
 
-const PORT = 3001;
-
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
-});
-
+app.listen(3000)
+console.log('Server running at http://localhost:3000/')
 
