@@ -4,9 +4,9 @@ const cors = require('cors'); // Importer le module cors
 const app = express();
 app.use(cors()); // Utiliser le middleware cors
 require('dotenv').config();
-const url = process.env.MONGODB_URI;
-const dbName = process.env.DB_NAME;
-const collectionName = process.env.COLLECTION_NAME;
+const url = "mongodb+srv://test:Mot2passe@cluster0.crayov6.mongodb.net/test"
+const dbName = "Pokedex"
+const collectionName = "jointure"
 const client = new MongoClient(url);
 
 app.get('/', async (req, res) => {
