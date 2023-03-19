@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
   
 });
 
-app.get('/pokemon/:id', async (req, res) => {
+app.get('/pokemonn/:id', async (req, res) => {
   try {
     await client.connect();
     const db = client.db(dbName);
