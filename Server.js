@@ -4,9 +4,9 @@ const cors = require('cors'); // Importer le module cors
 const app = express();
 app.use(cors()); // Utiliser le middleware cors
 require('dotenv').config();
-const url = "mongodb+srv://test:Mot2passe@cluster0.crayov6.mongodb.net/test"
-const dbName = "Pokedex"
-const collectionName = "jointure"
+const url = process.env.MONGODB_URI;
+const dbName = process.env.DB_NAME;
+const collectionName = process.env.COLLECTION_NAME;
 const client = new MongoClient(url);
 
 app.get('/', async (req, res) => {
@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
   
 });
 
-app.get('/pokemonn/:id', async (req, res) => {
+app.get('/pokemon/:id', async (req, res) => {
   try {
     await client.connect();
     const db = client.db(dbName);
@@ -45,6 +45,10 @@ app.get('/pokemonn/:id', async (req, res) => {
 
 
 
-app.listen(3000)
-console.log('Server running at http://localhost:3000/')
+const PORT = 3001;
+
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
+});
+
 
